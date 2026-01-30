@@ -192,7 +192,7 @@ async def get_mood_reflections(user_id: str, authorization: str = Header(None)):
         if not authorization:
              return {"reflection": "Log in to unlock AI insights."}
 
-        ANON_KEY = "sb_publishable_UtwtEriarz8S_E30pwblMg_KzgZyNc9"
+        ANON_KEY = SUPABASE_KEY
         headers_supa = { "apikey": ANON_KEY, "Authorization": authorization }
         url_supa = f"{SUPABASE_URL}/rest/v1/moods?user_id=eq.{user_id}&select=mood,note,timestamp&order=timestamp.desc&limit=5"
 
