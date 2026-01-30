@@ -280,7 +280,7 @@ export function AuthPage() {
                         {[
                             { l: 'S', w: 'tudent' },
                             { l: 'W', w: 'ellness' },
-                            { l: 'A', w: 'ssistant' },
+                            { l: 'A', w: 'ssistance and' },
                             { l: 'S', w: 'upport' },
                             { l: 'T', w: 'hrough' },
                             { l: 'H', w: 'ealth' }
