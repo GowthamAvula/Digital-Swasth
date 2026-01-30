@@ -260,6 +260,64 @@ export function AuthPage() {
                 </svg>
             </motion.div>
 
+            {/* SWASTH Acronym Expansion - Right Side */}
+            <Box
+                visibleFrom="lg"
+                style={{
+                    position: 'absolute',
+                    right: '10%',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    zIndex: 2,
+                }}
+            >
+                <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                >
+                    <Stack gap="sm">
+                        {[
+                            { l: 'S', w: 'tudent' },
+                            { l: 'W', w: 'ellness' },
+                            { l: 'A', w: 'ssistant' },
+                            { l: 'S', w: 'upport' },
+                            { l: 'T', w: 'hrough' },
+                            { l: 'H', w: 'ealth' }
+                        ].map((item, index) => (
+                            <Group key={index} gap="sm" wrap="nowrap">
+                                <Text
+                                    fw={900}
+                                    size="56px"
+                                    c="#FFD700"
+                                    style={{
+                                        textShadow: '0 0 30px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.2)',
+                                        lineHeight: 1,
+                                        fontFamily: 'Greycliff CF, sans-serif'
+                                    }}
+                                >
+                                    {item.l}
+                                </Text>
+                                <Text
+                                    fw={800}
+                                    size="36px"
+                                    c="white"
+                                    style={{
+                                        opacity: 0.95,
+                                        letterSpacing: '2px',
+                                        lineHeight: 1.2,
+                                        textShadow: '0 4px 15px rgba(0,0,0,0.5)',
+                                        fontFamily: 'Greycliff CF, sans-serif',
+                                        textTransform: 'uppercase'
+                                    }}
+                                >
+                                    {item.w}
+                                </Text>
+                            </Group>
+                        ))}
+                    </Stack>
+                </motion.div>
+            </Box>
 
 
             {/* Top Heading */}
