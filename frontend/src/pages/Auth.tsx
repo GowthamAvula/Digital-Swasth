@@ -269,7 +269,7 @@ export function AuthPage() {
                 style={{
                     position: 'absolute',
                     right: '8%',
-                    top: '58%',
+                    top: '60%',
                     transform: 'translateY(-50%)',
                     zIndex: 2,
                     maxWidth: '280px'
@@ -280,7 +280,7 @@ export function AuthPage() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                 >
-                    <Stack gap="lg">
+                    <Stack gap={40}>
                         {[
                             { l: 'S', w: 'tudent' },
                             { l: 'W', w: 'ellness' },
@@ -300,7 +300,7 @@ export function AuthPage() {
                                 >
                                     <Text
                                         fw={950}
-                                        size="40px"
+                                        size="36px"
                                         c="#0f0c29"
                                         style={{
                                             lineHeight: 1,
@@ -312,7 +312,7 @@ export function AuthPage() {
                                 </Box>
                                 <Text
                                     fw={800}
-                                    size="18px"
+                                    size="16px"
                                     c="white"
                                     ml={8}
                                     mt={4}
