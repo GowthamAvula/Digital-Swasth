@@ -269,10 +269,10 @@ export function AuthPage() {
                 style={{
                     position: 'absolute',
                     right: '8%',
-                    top: '60%',
+                    top: '55%',
                     transform: 'translateY(-50%)',
                     zIndex: 2,
-                    maxWidth: '280px'
+                    maxWidth: '400px'
                 }}
             >
                 <motion.div
@@ -280,54 +280,42 @@ export function AuthPage() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                 >
-                    <Stack gap={40}>
+                    <Stack gap="xl">
                         {[
-                            { l: 'S', w: 'tudent' },
-                            { l: 'W', w: 'ellness' },
-                            { l: 'A', w: 'ssistance and' },
-                            { l: 'S', w: 'upport' },
-                            { l: 'T', w: 'hrough' },
-                            { l: 'H', w: 'ealth-te' }
+                            { l: 'S', w: 'TUDENT' },
+                            { l: 'W', w: 'ELLNESS' },
+                            { l: 'A', w: 'SSISTANT' },
+                            { l: 'S', w: 'UPPORT' },
+                            { l: 'T', w: 'HROUGH' },
+                            { l: 'H', w: 'EALTH' }
                         ].map((item, index) => (
-                            <Stack key={index} gap={0} align="flex-start">
-                                <Box
+                            <Group key={index} gap="sm" wrap="nowrap" align="center">
+                                <Text
+                                    fw={900}
+                                    size="56px"
+                                    c="#FFD700"
                                     style={{
-                                        background: '#FFD700',
-                                        padding: '4px 12px',
-                                        borderRadius: '12px',
-                                        boxShadow: '0 0 25px rgba(255, 215, 0, 0.4)'
+                                        lineHeight: 1,
+                                        fontFamily: 'Greycliff CF, sans-serif',
+                                        textShadow: '0 0 20px rgba(255, 215, 0, 0.3)'
                                     }}
                                 >
-                                    <Text
-                                        fw={950}
-                                        size="36px"
-                                        c="#0f0c29"
-                                        style={{
-                                            lineHeight: 1,
-                                            fontFamily: 'Greycliff CF, sans-serif'
-                                        }}
-                                    >
-                                        {item.l}
-                                    </Text>
-                                </Box>
+                                    {item.l}
+                                </Text>
                                 <Text
                                     fw={800}
-                                    size="16px"
+                                    size="36px"
                                     c="white"
-                                    ml={8}
-                                    mt={4}
                                     style={{
-                                        opacity: 0.95,
-                                        letterSpacing: '1px',
+                                        letterSpacing: '2px',
                                         lineHeight: 1,
                                         textShadow: '0 4px 15px rgba(0,0,0,0.5)',
-                                        fontFamily: 'Greycliff CF, sans-serif',
-                                        textTransform: 'uppercase'
+                                        fontFamily: 'Greycliff CF, sans-serif'
                                     }}
                                 >
                                     {item.w}
                                 </Text>
-                            </Stack>
+                            </Group>
                         ))}
                     </Stack>
                 </motion.div>
@@ -341,9 +329,9 @@ export function AuthPage() {
                 transition={{ duration: 0.8 }}
                 style={{
                     position: 'absolute',
-                    top: '4%',
-                    left: '8%',
-                    textAlign: 'left',
+                    top: '8%',
+                    right: '8%',
+                    textAlign: 'right',
                     zIndex: 1,
                     width: 'auto'
                 }}
