@@ -532,7 +532,7 @@ export function AuthPage() {
                                             </Anchor>
                                         ) : (
                                             <>
-                                                <Divider label={<Text size="sm" c="white" fw={600}>HACKATHON MODE</Text>} labelPosition="center" color="rgba(255,255,255,0.3)" />
+                                                <Divider label={<Text size="sm" c="white" fw={600}>OR</Text>} labelPosition="center" color="rgba(255,255,255,0.3)" />
 
                                                 <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
                                                     <Button
