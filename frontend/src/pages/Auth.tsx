@@ -97,7 +97,7 @@ export function AuthPage() {
                 position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
+                justifyContent: 'flex-start',
                 background: '#0f0c29'
             }}
         >
@@ -292,7 +292,7 @@ export function AuthPage() {
                 </Text>
             </motion.div>
 
-            <Container size="xs" style={{ zIndex: 2, position: 'relative', maxWidth: '420px', marginTop: '80px' }}>
+            <Container size="xs" style={{ zIndex: 2, position: 'relative', maxWidth: '420px', marginLeft: '8%', marginTop: '80px' }}>
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9, y: 30 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
