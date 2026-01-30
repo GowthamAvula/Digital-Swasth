@@ -284,10 +284,10 @@ export function AuthPage() {
                         {[
                             { l: 'S', w: 'TUDENT' },
                             { l: 'W', w: 'ELLNESS' },
-                            { l: 'A', w: 'SSISTANT' },
+                            { l: 'A', w: 'ASSISTANCE AND' },
                             { l: 'S', w: 'UPPORT' },
                             { l: 'T', w: 'HROUGH' },
-                            { l: 'H', w: 'EALTH' }
+                            { l: 'H', w: 'EALTH-TE' }
                         ].map((item, index) => (
                             <Group key={index} gap="sm" wrap="nowrap" align="center">
                                 <Text
