@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Paper, TextInput, PasswordInput, Button, Title, Text, Stack, Container, Box, Group, Checkbox, Anchor, Divider } from '@mantine/core';
-import { IconHeartHandshake, IconMail, IconLock, IconArrowRight, IconUserPlus, IconBrandGoogle, IconBrandApple, IconArrowLeft } from '@tabler/icons-react';
+import { IconHeartHandshake, IconMail, IconLock, IconArrowRight, IconUserPlus, IconArrowLeft } from '@tabler/icons-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../supabaseClient';
 import { notifications } from '@mantine/notifications';
@@ -13,19 +13,22 @@ export function AuthPage() {
     const [rememberMe, setRememberMe] = useState(false);
     const [resetPassword, setResetPassword] = useState(false);
 
-    const handleSocialLogin = async (provider: 'google' | 'apple') => {
-        try {
-            const { error } = await supabase.auth.signInWithOAuth({
-                provider: provider,
-            });
-            if (error) throw error;
-        } catch (error: any) {
-            notifications.show({
-                title: 'Login Error',
-                message: error.message,
-                color: 'red'
-            });
-        }
+    const handleDemoLogin = () => {
+        const mockSession = {
+            access_token: 'demo-token',
+            refresh_token: 'demo-refresh',
+            expires_in: 3600,
+            token_type: 'bearer',
+            user: {
+                id: 'demo-user-id',
+                email: 'demo@swasth.ai',
+                user_metadata: { name: 'Demo Judge' },
+                aud: 'authenticated',
+                role: 'authenticated',
+            }
+        };
+        localStorage.setItem('swasth_demo_session', JSON.stringify(mockSession));
+        window.location.reload();
     };
 
     const handleSubmit = async () => {
@@ -529,32 +532,27 @@ export function AuthPage() {
                                             </Anchor>
                                         ) : (
                                             <>
-                                                <Divider label={<Text size="sm" c="white" fw={600}>OR</Text>} labelPosition="center" color="rgba(255,255,255,0.3)" />
+                                                <Divider label={<Text size="sm" c="white" fw={600}>HACKATHON MODE</Text>} labelPosition="center" color="rgba(255,255,255,0.3)" />
 
-                                                <Group grow>
-                                                    <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                                                        <Button
-                                                            variant="white"
-                                                            radius="lg"
-                                                            leftSection={<IconBrandApple size={20} />}
-                                                            style={{ height: '44px', fontWeight: 600, fontSize: '14px', transition: 'all 0.2s ease' }}
-                                                            onClick={() => handleSocialLogin('apple')}
-                                                        >
-                                                            Apple
-                                                        </Button>
-                                                    </motion.div>
-                                                    <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-                                                        <Button
-                                                            variant="white"
-                                                            radius="lg"
-                                                            leftSection={<IconBrandGoogle size={20} />}
-                                                            style={{ height: '44px', fontWeight: 600, fontSize: '14px', transition: 'all 0.2s ease' }}
-                                                            onClick={() => handleSocialLogin('google')}
-                                                        >
-                                                            Google
-                                                        </Button>
-                                                    </motion.div>
-                                                </Group>
+                                                <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+                                                    <Button
+                                                        fullWidth
+                                                        variant="white"
+                                                        radius="lg"
+                                                        leftSection={<IconHeartHandshake size={20} color="#667eea" />}
+                                                        style={{
+                                                            height: '50px',
+                                                            fontWeight: 800,
+                                                            fontSize: '16px',
+                                                            transition: 'all 0.2s ease',
+                                                            color: '#667eea',
+                                                            boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
+                                                        }}
+                                                        onClick={handleDemoLogin}
+                                                    >
+                                                        DEMO LOGIN (NO AUTH)
+                                                    </Button>
+                                                </motion.div>
                                             </>
                                         )}
                                     </Stack>

@@ -15,15 +15,25 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      setSession(data?.session || null);
+    // Check for demo session first
+    const demoSession = localStorage.getItem('swasth_demo_session');
+    if (demoSession) {
+      setSession(JSON.parse(demoSession));
       setLoading(false);
+    }
+
+    supabase.auth.getSession().then(({ data }) => {
+      if (!demoSession) {
+        setSession(data?.session || null);
+        setLoading(false);
+      }
     });
 
     const { data: subscriptionData } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_OUT') {
         setSession(null);
-      } else {
+        localStorage.removeItem('swasth_demo_session');
+      } else if (session) {
         setSession(session);
       }
     });
