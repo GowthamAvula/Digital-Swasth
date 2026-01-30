@@ -268,10 +268,11 @@ export function AuthPage() {
                 visibleFrom="lg"
                 style={{
                     position: 'absolute',
-                    right: '10%',
+                    right: '8%',
                     top: '50%',
                     transform: 'translateY(-50%)',
                     zIndex: 2,
+                    maxWidth: '300px'
                 }}
             >
                 <motion.div
@@ -279,36 +280,46 @@ export function AuthPage() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                 >
-                    <Stack gap="sm">
+                    <Stack gap="xl">
                         {[
                             { l: 'S', w: 'tudent' },
                             { l: 'W', w: 'ellness' },
                             { l: 'A', w: 'ssistance and' },
                             { l: 'S', w: 'upport' },
                             { l: 'T', w: 'hrough' },
-                            { l: 'H', w: 'ealth' }
+                            { l: 'H', w: 'ealth-te' }
                         ].map((item, index) => (
-                            <Group key={index} gap="sm" wrap="nowrap">
-                                <Text
-                                    fw={900}
-                                    size="56px"
-                                    c="#FFD700"
+                            <Stack key={index} gap={0} align="flex-start">
+                                <Box
                                     style={{
-                                        textShadow: '0 0 30px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.2)',
-                                        lineHeight: 1,
-                                        fontFamily: 'Greycliff CF, sans-serif'
+                                        background: '#FFD700',
+                                        padding: '4px 12px',
+                                        borderRadius: '12px',
+                                        boxShadow: '0 0 25px rgba(255, 215, 0, 0.4)'
                                     }}
                                 >
-                                    {item.l}
-                                </Text>
+                                    <Text
+                                        fw={950}
+                                        size="48px"
+                                        c="#0f0c29"
+                                        style={{
+                                            lineHeight: 1,
+                                            fontFamily: 'Greycliff CF, sans-serif'
+                                        }}
+                                    >
+                                        {item.l}
+                                    </Text>
+                                </Box>
                                 <Text
                                     fw={800}
-                                    size="36px"
+                                    size="24px"
                                     c="white"
+                                    ml={8}
+                                    mt={4}
                                     style={{
                                         opacity: 0.95,
-                                        letterSpacing: '2px',
-                                        lineHeight: 1.2,
+                                        letterSpacing: '1px',
+                                        lineHeight: 1,
                                         textShadow: '0 4px 15px rgba(0,0,0,0.5)',
                                         fontFamily: 'Greycliff CF, sans-serif',
                                         textTransform: 'uppercase'
@@ -316,7 +327,7 @@ export function AuthPage() {
                                 >
                                     {item.w}
                                 </Text>
-                            </Group>
+                            </Stack>
                         ))}
                     </Stack>
                 </motion.div>
