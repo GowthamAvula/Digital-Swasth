@@ -269,10 +269,10 @@ export function AuthPage() {
                 style={{
                     position: 'absolute',
                     right: '8%',
-                    top: '50%',
+                    top: '58%',
                     transform: 'translateY(-50%)',
                     zIndex: 2,
-                    maxWidth: '300px'
+                    maxWidth: '280px'
                 }}
             >
                 <motion.div
@@ -280,7 +280,7 @@ export function AuthPage() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                 >
-                    <Stack gap="xl">
+                    <Stack gap="lg">
                         {[
                             { l: 'S', w: 'tudent' },
                             { l: 'W', w: 'ellness' },
@@ -300,7 +300,7 @@ export function AuthPage() {
                                 >
                                     <Text
                                         fw={950}
-                                        size="48px"
+                                        size="40px"
                                         c="#0f0c29"
                                         style={{
                                             lineHeight: 1,
@@ -312,7 +312,7 @@ export function AuthPage() {
                                 </Box>
                                 <Text
                                     fw={800}
-                                    size="24px"
+                                    size="18px"
                                     c="white"
                                     ml={8}
                                     mt={4}
@@ -341,13 +341,11 @@ export function AuthPage() {
                 transition={{ duration: 0.8 }}
                 style={{
                     position: 'absolute',
-                    top: '5%',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    textAlign: 'center',
+                    top: '4%',
+                    left: '8%',
+                    textAlign: 'left',
                     zIndex: 1,
-                    width: '90%',
-                    maxWidth: '800px'
+                    width: 'auto'
                 }}
             >
                 <Text
